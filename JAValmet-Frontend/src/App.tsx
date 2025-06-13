@@ -1,9 +1,15 @@
+import type { ReactNode } from 'react';
 import Navbar from './components/Navbar'
 
-function App() {
+type AppProps = {
+  children: ReactNode;
+};
+
+function App({ children }: AppProps) {
   return (
     <>
      <Navbar></Navbar>
+     {children}
     </>
   )
 }
