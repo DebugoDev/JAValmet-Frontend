@@ -3,8 +3,10 @@ import { Logo } from './Logo';
 import { Input } from './Input';
 import { Button } from './Button';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm: React.FC = () => {
+    const navigate = useNavigate();
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
@@ -34,7 +36,7 @@ export const LoginForm: React.FC = () => {
                     placeholder="Digite sua Senha"
                 />
 
-                <Button type="submit" label="Login" />
+                <Button onClick={() => navigate('/home')} type="submit" label="Login" />
             </form>
         </Card>
     );
