@@ -4,31 +4,38 @@ export default function Navbar() {
     return (
         <nav className="bg-white shadow-md w-full">
             <div
-                className="mx-auto px-4 sm:px-6 lg:px-2 2xl:px-16"
+                className="mx-auto px-7 sm:px-7 lg:px-10 2xl:px-16"
                 style={{ maxWidth: '1920px' }}
             >
-                <div className="flex justify-between h-16 md:h-18 items-center">
+                <div className="flex justify-between h-14 items-center">
                     <div className="flex items-center">
                         <img
                             src="/LogoValmet.png"
                             alt="Valmet"
-                            className="h-8 w-auto md:h-10 xl:h-10"
+                            className="h-7 w-auto"
                         />
                     </div>
-                    <div className="flex items-center gap-4 md:gap-6 xl:gap-8">
+                    <div className="flex items-center gap-3 md:gap-6 xl:gap-8 h-full">
                         <button
                             type="button"
-                            className="text-gray-600 hover:text-gray-800 focus:outline-none"
-                            aria-label="Configurações"
+                            className="text-gray-600 hover:text-gray-800 focus:outline-none cursor-pointer duration-150"
+                            aria-label="Notificações"
                         >
-                            <Settings className="h-5 w-5 md:h-6 md:w-6 xl:h-6 xl:w-6" />
+                            <Bell className="h-4 w-4 md:h-5 md:w-5 xl:h-5 xl:w-5" />
                         </button>
                         <button
                             type="button"
-                            className="text-gray-600 hover:text-gray-800 focus:outline-none"
-                            aria-label="Notificações"
+                            className="text-gray-600 hover:text-gray-800 focus:outline-none cursor-pointer duration-150"
+                            aria-label="Configurações"
                         >
-                            <Bell className="h-5 w-5 md:h-6 md:w-6 xl:h-6 xl:w-6" />
+                            <Settings className="h-4 w-4 md:h-5 md:w-5 xl:h-5 xl:w-5" />
+                        </button>
+                        <button
+                            type="button"
+                            aria-label="Perfil"
+                            className="h-full"
+                        >
+                            <img className="h-4/6 rounded-full hover:brightness-75 cursor-pointer duration-150" src="User.jpg" alt="Profile image" />
                         </button>
                     </div>
                 </div>
