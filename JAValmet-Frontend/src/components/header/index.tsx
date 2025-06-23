@@ -43,7 +43,7 @@ const Header = () => {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const pages = [t("settings"), t("notificatios")];
-  const settings = [t("profile"), t("logout")];n
+  const settings = [t("profile"), t("logout")];
 
   const pagesRoutes: Record<string, string> = {
     [t("settings")]: "/settings",
