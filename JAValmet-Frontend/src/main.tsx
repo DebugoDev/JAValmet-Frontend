@@ -1,31 +1,38 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { Login } from './pages/Login/Login.tsx'
-import { Toaster } from 'react-hot-toast';
-
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import "./index.css";
+import './index.css'
+import LoginPage from './pages/login';
 
-import Home from "./pages/Dashboard.tsx";
+import './i18n';
+import { ThemeProvider } from '@mui/material/styles';
+import { Toaster } from 'react-hot-toast';
+import theme from './theme';
+import App from './app';
+import Home from './pages/home';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />
+    element: <LoginPage />
   },
   {
     path: "/home",
     element:
-      <Home />
-  },
-])
+      <App>
+        <Home />
+      </App>
+  }
+]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
-    <Toaster />
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+      <Toaster />
+    </ThemeProvider>
   </StrictMode>,
 )

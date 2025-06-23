@@ -1,0 +1,12 @@
+#logo {
+    width: 175px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+    padding: 40px 20px;
+}

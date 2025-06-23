@@ -1,0 +1,11 @@
+{
+    "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "search-board": "Search a board",
+    "settings": "Settings",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "logout": "Logout",
+    "open-settings": "Open settings"
+}

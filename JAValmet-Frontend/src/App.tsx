@@ -1,17 +1,12 @@
-import type { ReactNode } from 'react';
-import Navbar from './components/Navbar'
+import Header from "./components/header";
 
-type AppProps = {
-  children: ReactNode;
-};
-
-function App({ children }: AppProps) {
-  return (
-    <>
-     <Navbar></Navbar>
-     {children}
-    </>
-  )
+const App = ({ children }: { children: React.ReactNode }) => {
+    return (
+        <main>
+            <Header />
+            {children}
+        </main>
+    )
 }
 
-export default App
+export default App;

@@ -1,0 +1,11 @@
+{
+    "login": "Entrar",
+    "email": "Email",
+    "password": "Contraseña",
+    "search-board": "Buscar un board",
+    "settings": "Configuraciones",
+    "notifications": "Notificaciones",
+    "profile": "Perfil",
+    "logout": "Cerrar sesión",
+    "open-settings": "Abrir configuración"
+}
