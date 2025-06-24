@@ -13,6 +13,7 @@ import { Toaster } from 'react-hot-toast';
 import theme from './theme';
 import App from './app';
 import Home from './pages/home';
+import Dashboard from './pages/dashboard';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,12 @@ const router = createBrowserRouter([
       <App>
         <Home />
       </App>
+  }, {
+    path: "/dashboard/:id",
+    element:
+    <App>
+      <Dashboard />
+    </App>
   }
 ]);
 

@@ -2,7 +2,7 @@ import Header from "./components/header";
 
 const App = ({ children }: { children: React.ReactNode }) => {
     return (
-        <main>
+        <main className="main">
             <Header />
             {children}
         </main>

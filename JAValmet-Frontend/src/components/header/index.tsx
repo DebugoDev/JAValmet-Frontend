@@ -25,7 +25,7 @@ const userRequest = async () => {
 
   const token = sessionStorage.getItem("Token");
 
-  const response = await api.get("/users/image", {
+  const response = await api.get("/users/image?size=SMALL", {
     responseType: "blob",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -42,7 +42,7 @@ const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
-  const pages = [t("settings"), t("notificatios")];
+  const pages = [t("settings"), t("notifications")];
   const settings = [t("profile"), t("logout")];
 
   const pagesRoutes: Record<string, string> = {
@@ -89,7 +89,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "#fff" }} >
+    <AppBar position="fixed" sx={{ backgroundColor: "#fff" }} >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img id={style.logo} src={LogoValmet} onClick={() => navigate("/home")} alt="Valmet" />
@@ -146,11 +146,9 @@ const Header = () => {
 
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="User photo" src={imageURL} />
-              </IconButton>
-            </Tooltip>
+            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <Avatar alt="User photo" src={imageURL} />
+            </IconButton>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
