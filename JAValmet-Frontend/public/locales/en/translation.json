@@ -1,0 +1,18 @@
+{
+    "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "search-board": "Search a board",
+    "settings": "Settings",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "logout": "Logout",
+    "open-settings": "Open settings",
+    "created": "Created{{by}}{{at}}",
+    "by": " by {{name}}",
+    "at": " at {{date}}",
+    "ratings": "Ratings",
+    "kpis": "KPIs",
+    "problem-solving-form": "Problem-Solving Form",
+    "edit-board": "Edit board"
+}

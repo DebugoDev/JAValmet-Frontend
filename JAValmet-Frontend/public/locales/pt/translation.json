@@ -1,0 +1,18 @@
+{
+    "login": "Entrar",
+    "email": "Email",
+    "password": "Senha",
+    "search-board": "Pesquise um board",
+    "settings": "Configurações",
+    "notifications": "Notificações",
+    "profile": "Perfil",
+    "logout": "Sair",
+    "open-settings": "Abrir configurações",
+    "created": "Criado{{by}}{{at}}",
+    "by": " por {{name}}",
+    "at": " em {{date}}",
+    "ratings": "Avaliações",
+    "kpis": "KPIs",
+    "problem-solving-form": "Formulário de Solução de Problemas",
+    "edit-board": "Editar board"
+}
