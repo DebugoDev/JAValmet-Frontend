@@ -14,7 +14,11 @@ import theme from './theme';
 import App from './app';
 import Home from './pages/home';
 import Dashboard from './pages/dashboard';
+<<<<<<< HEAD
 import Profile from './pages/profile';
+=======
+import Logout from './pages/logout';
+>>>>>>> origin/refactor
 
 const router = createBrowserRouter([
   {
@@ -30,6 +34,7 @@ const router = createBrowserRouter([
   }, {
     path: "/dashboard/:id",
     element:
+<<<<<<< HEAD
     <App>
       <Dashboard />
     </App>
@@ -47,6 +52,15 @@ const router = createBrowserRouter([
     <App>
       <Profile />
     </App>
+=======
+      <App>
+        <Dashboard />
+      </App>
+  },
+  {
+    path: "/logout",
+    element: <Logout />
+>>>>>>> origin/refactor
   }
 ]);
 

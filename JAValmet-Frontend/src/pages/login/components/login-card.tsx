@@ -40,6 +40,7 @@ const LoginCard = () => {
             }
         ).then((response) => {
             sessionStorage.setItem("Token", response.data.token);
+            sessionStorage.setItem("Role", response.data.role);
             navigate("/home");
         });
     };
