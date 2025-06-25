@@ -6,8 +6,47 @@ hr {
     margin-right: auto;
 }
 
+#footer {
+    padding: 15px 35px;
+
+    display: flex;
+    align-items: center;
+}
+
+.body {
+    height: 100%;
+    display: flex;
+
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.body::-webkit-scrollbar {
+    background-color: #f0f0f0;
+    height: 10px;
+    cursor: default;
+}
+
+.body::-webkit-scrollbar-thumb {
+    background-color: #8B8D8D;
+    border: 2px solid #f0f0f0;
+    cursor: pointer;
+}
+
+.columns {
+    display: flex;
+    gap: 15px;
+    padding: 0 35px;
+
+    /* mantemos apenas scroll horizontal */
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+
 .dashboard_main {
-    background-color:aquamarine;
+    display: flex;
+    flex-direction: column;
 
     height: 100%;
 }
@@ -16,5 +55,22 @@ hr {
     padding: 15px 35px;
 
     display: flex;
-    align-items: center;    
+    align-items: center;
+}
+
+.center {
+    display: flex;
+
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_column:hover {
+    cursor: pointer;
+    filter: brightness(.95);
+}
+
+.padding {
+    padding: 2px;
 }

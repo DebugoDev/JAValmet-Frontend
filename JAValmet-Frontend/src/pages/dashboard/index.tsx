@@ -13,6 +13,9 @@ import Typography from "../../components/typography";
 import style from "./style.module.css";
 import { api } from "../../services/api";
 import Menu from "./components/menu";
+import Column, { type IColumn } from "./components/column";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 
 interface IBoard {
   id: string
@@ -28,25 +31,42 @@ const boardRequest = async (id: string) => {
   });
 };
 
+const columnsRequest = async (id: string) => {
+  const token = sessionStorage.getItem("Token");
+  return await api.get(`/columns/${id}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+}
+
 const Dashboard = () => {
   const { t } = useTranslation();
   const { id } = useParams();
+
   const [board, setBoard] = useState<IBoard>();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const [columns, setColumns] = useState<IColumn[]>([]);
 
   useEffect(() => {
     const fetchBoard = async () => {
       const response = await boardRequest(id!);
       setBoard(response.data);
     };
+
+    const fetchColumns = async () => {
+      const response = await columnsRequest(id!);
+      setColumns(response.data);
+    };
+
     fetchBoard();
+    fetchColumns();
   }, [id]);
 
   return (
     <main className={style.dashboard_main}>
       <Menu isOpen={menuOpen} onToggle={() => setMenuOpen(!menuOpen)}>
         <Typography>
-            {board?.description}
+          {board?.description}
         </Typography>
         <hr />
       </Menu>
@@ -61,8 +81,25 @@ const Dashboard = () => {
         <Tooltip title={t("edit-board")}><IconButton><EditIcon /></IconButton></Tooltip>
       </div>
 
-      <div>aaa</div>
-      <div>asdfasd</div>
+      <div className={style.body}>
+        <div className={style.columns}>
+          {
+            columns.map((col, index) =>
+              <div className={style.padding}>
+                <Column key={index} column={col}></Column>
+              </div>
+            )
+          }
+          {/* <div className={style.padding}> */}
+            <Card sx={{ width: "300px", height: "fit-content" }} elevation={3} className={style.add_column} >
+              <CardContent className={style.center}>
+                <Typography weight="bold">New Column</Typography>
+              </CardContent>
+            </Card>
+          </div>
+        {/* </div> */}
+      </div>
+      <footer id={style.footer}>asdfasd</footer>
     </main>
   );
 };

@@ -14,6 +14,7 @@ import theme from './theme';
 import App from './app';
 import Home from './pages/home';
 import Dashboard from './pages/dashboard';
+import Logout from './pages/logout';
 
 const router = createBrowserRouter([
   {
@@ -29,9 +30,13 @@ const router = createBrowserRouter([
   }, {
     path: "/dashboard/:id",
     element:
-    <App>
-      <Dashboard />
-    </App>
+      <App>
+        <Dashboard />
+      </App>
+  },
+  {
+    path: "/logout",
+    element: <Logout />
   }
 ]);
 
