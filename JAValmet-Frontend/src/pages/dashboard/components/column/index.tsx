@@ -5,6 +5,8 @@ import Typography from "../../../../components/typography";
 import style from "./style.module.css"
 import type { IBatch } from "../batch";
 import Batch from "../batch";
+import CardActions from "@mui/material/CardActions";
+import Button from "@mui/material/Button";
 
 export interface IColumn {
     id?: string
@@ -27,6 +29,9 @@ const Column = ({ column }: ColumnProps) => {
                 <CardContent>
                     <Typography weight="bold">{column.name}</Typography>
                 </CardContent>
+                <CardActions>
+                    <Button variant="contained" fullWidth>New card</Button>
+                </CardActions>
 
                 <div className={style.box}>
                     <div className={style.cards}>
