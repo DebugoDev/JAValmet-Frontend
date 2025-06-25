@@ -85,19 +85,19 @@ const Dashboard = () => {
         <div className={style.columns}>
           {
             columns.map((col, index) =>
-              <div className={style.padding}>
-                <Column key={index} column={col}></Column>
+              <div key={index} className={style.padding}>
+                <Column column={col}></Column>
               </div>
             )
           }
-          {/* <div className={style.padding}> */}
+          <div className={style.padding}>
             <Card sx={{ width: "300px", height: "fit-content" }} elevation={3} className={style.add_column} >
               <CardContent className={style.center}>
                 <Typography weight="bold">New Column</Typography>
               </CardContent>
             </Card>
           </div>
-        {/* </div> */}
+        </div>
       </div>
       <footer id={style.footer}>asdfasd</footer>
     </main>

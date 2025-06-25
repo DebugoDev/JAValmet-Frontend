@@ -13,6 +13,8 @@
 
     gap: 10px;
     /* max-height: 100%; */
+
+    margin-bottom: 50px;
 }
 
 .box {
@@ -23,11 +25,11 @@
 }
 
 .box::-webkit-scrollbar {
-    width: 8px;
-    background-color: #f0f0f0;
+    width: 6px;
+    /* background-color: #f0f0f0; */
 }
 
 .box::-webkit-scrollbar-thumb {
     background-color: #8B8D8D;
-    border: 2px solid #f0f0f0;
+    /* border: 2px solid #f0f0f0; */
 }
