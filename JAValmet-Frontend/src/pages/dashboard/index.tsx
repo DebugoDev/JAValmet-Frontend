@@ -41,29 +41,31 @@ const columnsRequest = async (id: string) => {
 
 const Dashboard = () => {
     const { t } = useTranslation();
-    const { id } = useParams();
+    const { boardId } = useParams();
 
     const [board, setBoard] = useState<IBoard>();
     const [columns, setColumns] = useState<IColumn[]>([]);
     const [menuOpen, setMenuOpen] = useState(false);
 
     const [searchParams, setSearchParams] = useSearchParams();
-    const batchParam = searchParams.get('batch');
+
+    const batchParam = searchParams.get('batchId');
+    const columnParam = searchParams.get('columnId');
 
     useEffect(() => {
         const fetchBoard = async () => {
-            const response = await boardRequest(id!);
+            const response = await boardRequest(boardId!);
             setBoard(response.data);
         };
 
         const fetchColumns = async () => {
-            const response = await columnsRequest(id!);
+            const response = await columnsRequest(boardId!);
             setColumns(response.data);
         };
 
         fetchBoard();
         fetchColumns();
-    }, [id]);
+    }, [boardId]);
 
     return (
         <main className={style.dashboard_main}>
@@ -102,10 +104,9 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-            <footer id={style.footer}>asdfasd</footer>
-
+            <footer id={style.footer}>Valmet</footer>
             {
-                batchParam &&
+                (batchParam || columnParam) &&
                 <BatchModal />
             }
         </main>
