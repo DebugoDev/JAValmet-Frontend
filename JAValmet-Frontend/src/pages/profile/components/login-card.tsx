@@ -9,60 +9,76 @@ import style from "./style.module.css";
 
 import { api } from '../../../services/api';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
+interface User {
+  name: string;
+  email: string;
+  position: string;
+  phone?: string;
+  department?: string;
+}
 
 const UserProfileCard = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { t } = useTranslation();
 
-    const [imageURL, setImageURL] = useState("user.jpg"); // imagem padrão
-    const [user, setUser] = useState({
-        nome: "Adrian Gobara",
-        email: "adrian@example.com",
-        cargo: "Desenvolvedor Front-end",
-        telefone: "(11) 91234-5678",
-        departamento: "TI"
-    });
+  const [imageURL, setImageURL] = useState("user.jpg");
+  const [user, setUser] = useState<User>({
+    name: "",
+    email: "",
+    position: "",
+    phone: "",
+    department: ""
+  });
 
-    useEffect(() => {
-        const fetchUserImage = async () => {
-            try {
-                const token = sessionStorage.getItem("Token");
-                const response = await api.get("/users/image?size=SMALL", {
-                    responseType: "blob",
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
-                setImageURL(URL.createObjectURL(response.data));
-            } catch (error) {
-                console.error("Erro ao buscar imagem do usuário:", error);
-                navigate("/");
-            }
-        };
+  useEffect(() => {
+    const token = sessionStorage.getItem("Token");
 
-        fetchUserImage();
-    }, []);
+    const fetchUser = async () => {
+      try {
+        const [imageRes, userRes] = await Promise.all([
+          api.get("/users/image?size=SMALL", {
+            responseType: "blob",
+            headers: { Authorization: `Bearer ${token}` }
+          }),
+          api.get("/users", {
+            headers: { Authorization: `Bearer ${token}` }
+          })
+        ]);
 
-    return (
-        <Card elevation={3} sx={{
-            width: 600,
-            maxWidth: "100%",
-            padding: "30px 20px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 2,
-            boxShadow: 15
-        }}>
-            <img id={style.logo} src={LogoValmet} alt="Logo Valmet" />
-            <Avatar alt={user.nome} src={imageURL} sx={{ width: 100, height: 100 }} />
-            <Typography variant="h6">{user.nome}</Typography>
-            <Typography color="textSecondary">{user.email}</Typography>
-            <Divider sx={{ width: '100%', margin: "15px 0" }} />
-            <Typography><strong>Cargo:</strong> {user.cargo}</Typography>
-            <Typography><strong>Telefone:</strong> {user.telefone}</Typography>
-            <Typography><strong>Departamento:</strong> {user.departamento}</Typography>
-        </Card>
-    );
+        setImageURL(URL.createObjectURL(imageRes.data));
+        setUser(userRes.data);
+      } catch (error) {
+        console.error("Erro ao buscar dados do usuário:", error);
+        navigate("/");
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  return (
+    <Card elevation={3} sx={{
+      width: 500,
+      maxWidth: "100%",
+      padding: "30px 20px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 2,
+      boxShadow: 15
+    }}>
+      <img id={style.logo} src={LogoValmet} alt="Logo Valmet" />
+      <Avatar alt={user.name} src={imageURL} sx={{ width: 100, height: 100 }} />
+      <Typography variant="h6">{user.name}</Typography>
+      <Typography color="textSecondary">{user.email}</Typography>
+
+      <Divider sx={{ width: '100%', margin: "15px 0" }} />
+
+      <Typography><strong>{t("position")}:</strong> {user.position}</Typography>
+    </Card>
+  );
 };
 
 export default UserProfileCard;

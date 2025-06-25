@@ -15,5 +15,9 @@
     "kpis": "KPIs",
     "problem-solving-form": "Formulário de Solução de Problemas",
     "edit-board": "Editar board",
-    "add": "Adicionar"
+    "add": "Adicionar",
+    "name": "Nome",
+    "position": "Cargo",
+    "phone": "Telefone",
+    "department": "Departamento"
 }

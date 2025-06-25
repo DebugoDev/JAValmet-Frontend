@@ -1,12 +1,13 @@
-import UserProfileCard from "./components/login-card"; // ou renomeie para user-profile-card.tsx
+// src/pages/settings/index.tsx
 import style from "./style.module.css";
+import SettingsCard from "./components/SettingsCard";
 
-const ProfilePage = () => {
-    return (
-        <main className={style.center}>
-            <UserProfileCard />
-        </main>
-    );
+const SettingsPage = () => {
+  return (
+    <main className={style.center}>
+      <SettingsCard />
+    </main>
+  );
 };
 
-export default ProfilePage;
+export default SettingsPage;
