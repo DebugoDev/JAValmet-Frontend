@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import style from "./style.module.css";
 import Typography from "../../components/typography";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 interface IBoard {
     id: string
@@ -57,6 +57,7 @@ const imageRequest = async (fileId: string) => {
 const Home = () => {
 
     const { t } = useTranslation();
+    const { boardId } = useParams();
 
     const [search, setSearch] = useState("");
     const [boards, setBoards] = useState<IBoard[]>([]);

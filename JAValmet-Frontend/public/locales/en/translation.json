@@ -14,5 +14,10 @@
     "ratings": "Ratings",
     "kpis": "KPIs",
     "problem-solving-form": "Problem-Solving Form",
-    "edit-board": "Edit board"
+    "edit-board": "Edit board",
+    "add": "Add",
+    "name": "Name",
+    "position": "Position",
+    "phone": "Phone",
+    "department": "Department"
 }

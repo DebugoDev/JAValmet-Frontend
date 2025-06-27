@@ -34,7 +34,7 @@
 
 .toggleButton {
     position: fixed;
-    top: 10px;
+    bottom: 10px;
     left: 10px;
 
     width: 30px;

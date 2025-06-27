@@ -14,6 +14,9 @@ import theme from './theme';
 import App from './app';
 import Home from './pages/home';
 import Dashboard from './pages/dashboard';
+import Profile from './pages/profile';
+import Settings from './pages/settings';
+import Logout from './pages/logout';
 
 const router = createBrowserRouter([
   {
@@ -27,11 +30,29 @@ const router = createBrowserRouter([
         <Home />
       </App>
   }, {
-    path: "/dashboard/:id",
+    path: "/dashboard/:boardId",
     element:
     <App>
       <Dashboard />
     </App>
+  },
+  {
+    path: "/profile",
+    element:
+    <App>
+      <Profile />
+    </App>
+  },
+  {
+    path: "/settings",
+    element:
+    <App>
+      <Settings />
+    </App>
+  },
+    { 
+    path: "/logout",
+    element: <Logout />
   }
 ]);
 

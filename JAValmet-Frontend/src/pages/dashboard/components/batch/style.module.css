@@ -1,0 +1,33 @@
+.info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+    width: 100%;
+}
+
+.text {
+    width: 100%;
+    display: inline-block;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.obs {
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+
+    white-space: normal;
+    word-break: break-word;
+}
+
+.ellipsis {
+    width: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
